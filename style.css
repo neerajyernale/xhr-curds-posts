@@ -1,0 +1,12 @@
+.card-header h2 {
+    height: 45px;
+    width: 200px;       
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+.card{
+    height: 100%;
+}

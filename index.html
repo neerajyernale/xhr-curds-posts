@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+        crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>User Management Dashboard</title>
+</head>
+
+<body>
+    <div class="container ">
+         <div class="text-center mb-5">
+            <h1 class="display-5 font-weight-bold">
+                <i class="fa-solid fa-users text-primary"></i>
+               <span>  User Management Dashboard</span>
+            </h1>
+            <p class="text-muted">
+                Manage user posts efficiently using XHR CRUD operations
+            </p>
+        </div>
+         <div class="row">
+            <div class="col-lg-6 col-md-6 mx-auto">
+                <div class="card shadow border-0 rounded-lg">
+                    <div class="card-header bg-white text-center">
+                        <h4 class="mb-0">
+                            <i class="fa-solid fa-user-plus text-success"></i>
+                            <span>Add User</span>
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <form class="form-group mb-0" id="userForm">
+                            <div class="mb-3">
+                                <label class="font-weight-bold" for="title">
+                                    Title *
+                                </label>
+                                 <input
+                                    type="text"
+                                    required
+                                    class="form-control"
+                                    id="title"
+                                    placeholder="Enter title"
+                                />
+                            </div>
+                            <div class="mb-3">
+                                <label class="font-weight-bold" for="body">
+                                    Body *
+                                </label>
+
+                                <textarea
+                                    id="body"
+                                    required
+                                    class="form-control"
+                                    rows="4"
+                                    placeholder="Enter description"
+                                ></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="font-weight-bold" for="userId">
+                                    User ID *
+                                </label>
+                                <select id="userId" class="form-control">
+                                    <option value="1">User 1</option>
+                                    <option value="2">User 2</option>
+                                    <option value="3">User 3</option>
+                                    <option value="4">User 4</option>
+                                    <option value="5">User 5</option>
+                                    <option value="6">User 6</option>
+                                    <option value="7">User 7</option>
+                                    <option value="8">User 8</option>
+                                    <option value="9">User 9</option>
+                                    <option value="10">User 10</option>
+                                </select>
+                            </div>
+
+                            <button
+                                class="btn btn-success btn-block mt-4"
+                                id="editId"
+                            >
+                                <i class="fa-solid fa-plus"></i>
+                                <span>Add User</span>
+                            </button>
+
+                            <button
+                                type="button"
+                                class="btn btn-warning btn-block mt-2 d-none"
+                                id="updatId"
+                            >
+                                <i class="fa-solid fa-pen"></i>
+                               <span>Update User</span> 
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+         </div>
+           <div class="row" id="cardContaier"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
