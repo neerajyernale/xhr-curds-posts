@@ -41,7 +41,7 @@ function creatCards(eve) {
 
   eve.forEach((element) => {
     result += `
-      <div class="col-md-3" id="${element.id}">
+      <div class="col-md-3 mt-3" id="${element.id}">
         <div class="card h-100">
           <div class="card-header">
             <h2>${element.title}</h2>
@@ -82,7 +82,7 @@ function cardHandalar(eve) {
       let response = JSON.parse(xhr.response);
 
       let div = document.createElement("div");
-      div.className = "col-md-3 my-4";
+      div.className = "col-md-3 mt-3";
       div.id = response.id;
 
       div.innerHTML = `
@@ -221,13 +221,24 @@ function removeFun(ele) {
   xhr.onload = function () {
     if (xhr.status >= 200 && xhr.status <= 299) {
       ele.closest(".col-md-3").remove();
+  Swal.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed) Swal.fire({
+    title: "Deleted!",
+    text: "Your file has been deleted.",
+    icon: "success"
+  });
+});
 
-      Swal.fire({
-        title: "User deleted successfully",
-        icon: "success",
-        timer: 800,
-        showConfirmButton: false,
-      });
+
+      
     } else {
       cl("Something went wrong");
     }
