@@ -6,6 +6,7 @@ const body = document.getElementById("body");
 const userId = document.getElementById("userId");
 const editBtn = document.getElementById("editId");
 const updatBtn = document.getElementById("updatId");
+const spinner = document.getElementById('spinner');
 
 const cardContaier = document.getElementById("cardContaier");
 
@@ -62,6 +63,7 @@ function creatCards(eve) {
 }
 
 function cardHandalar(eve) {
+  spinner.classList.remove('d-none');
   eve.preventDefault();
 
   let newObj = {
@@ -106,6 +108,7 @@ function cardHandalar(eve) {
         timer: 800,
         showConfirmButton: false,
       });
+      spinner.classList.add('d-none');
 
       cardContaier.prepend(div);
       userForm.reset();
@@ -120,6 +123,7 @@ function cardHandalar(eve) {
 }
 
 function onEdit(ele) {
+   spinner.classList.remove('d-none');
   let editId = ele.closest(".col-md-3").id;
 
   localStorage.setItem("editId", editId);
@@ -142,9 +146,10 @@ function onEdit(ele) {
       title.value = editObj.title;
       body.value = editObj.body;
       userId.value = editObj.userId;
-
+      spinner.classList.add('d-none');
       editBtn.classList.add("d-none");
       updatBtn.classList.remove("d-none");
+
     } else {
       cl("Something went wrong");
     }
@@ -156,6 +161,7 @@ function onEdit(ele) {
 }
 
 function onUpdate(eve) {
+  spinner.classList.remove('d-none');
   eve.preventDefault();
 
   let updateId = localStorage.getItem("editId");
@@ -191,7 +197,7 @@ function onUpdate(eve) {
         timer: 800,
         showConfirmButton: false,
       });
-
+      spinner.classList.add('d-none');
       editBtn.classList.remove("d-none");
       updatBtn.classList.add("d-none");
 
@@ -209,6 +215,8 @@ function onUpdate(eve) {
 }
 
 function removeFun(ele) {
+    spinner.classList.remove('d-none');
+
   let removeId = ele.closest(".col-md-3").id;
 
   let removeUrl = `${BaseURL}/posts/${removeId}`;
@@ -236,6 +244,8 @@ function removeFun(ele) {
     icon: "success"
   });
 });
+    spinner.classList.add('d-none');
+
 
 
       
